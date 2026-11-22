@@ -15,7 +15,7 @@ export function InteropDiagram() {
       role="img"
       aria-label="CuaderCampo conectado con Microsoft Dynamics, a3ERP, Sage, Odoo, Holded y SAP"
     >
-      <rect x="0" y="0" width="1586" height="992" rx="32" fill="#f4f8fb" />
+      <rect x="0" y="0" width="1586" height="992" rx="32" fill="#DCE9E6" />
 
       {ERP_PARTNERS.map((name, i) => {
         const y = top + i * step;
@@ -23,13 +23,13 @@ export function InteropDiagram() {
           <g key={name}>
             <path
               d={`M${hub.x + 150} ${hub.y} C ${hub.x + 330} ${hub.y}, ${pillX - 200} ${y + 40}, ${pillX} ${y + 40}`}
-              stroke="#5ab0e0"
+              stroke="#7FA35E"
               strokeWidth="5"
               strokeDasharray="4 14"
               strokeLinecap="round"
               fill="none"
             />
-            <circle cx={pillX} cy={y + 40} r="9" fill="#5ab0e0" />
+            <circle cx={pillX} cy={y + 40} r="9" fill="#7FA35E" />
             <rect
               x={pillX + 24}
               y={y}
@@ -37,17 +37,17 @@ export function InteropDiagram() {
               height="80"
               rx="18"
               fill="#fff"
-              stroke="#d5e3ee"
+              stroke="#E2DFD0"
               strokeWidth="3"
             />
             <text
               x={pillX + 214}
               y={y + 52}
               textAnchor="middle"
-              fontFamily="var(--font-roboto), Roboto, sans-serif"
+              fontFamily="var(--font-dm-sans), DM Sans, sans-serif"
               fontSize="38"
-              fontWeight="700"
-              fill="#004a71"
+              fontWeight="800"
+              fill="#234B2C"
             >
               {name}
             </text>
@@ -55,37 +55,40 @@ export function InteropDiagram() {
         );
       })}
 
-      <circle cx={hub.x} cy={hub.y} r="150" fill="#090d33" />
-      <circle cx={hub.x} cy={hub.y} r="172" fill="none" stroke="#00c853" strokeWidth="6" strokeDasharray="2 18" strokeLinecap="round" />
-      <g transform={`translate(${hub.x - 70} ${hub.y - 100})`} color="#fff">
-        <LogoMark size={140} />
+      <circle cx={hub.x} cy={hub.y} r="150" fill="#234B2C" />
+      <circle cx={hub.x} cy={hub.y} r="172" fill="none" stroke="#7FA35E" strokeWidth="6" strokeDasharray="2 18" strokeLinecap="round" />
+      <g transform={`translate(${hub.x - 60} ${hub.y - 110})`}>
+        <LogoMark size={120} />
       </g>
       <text
         x={hub.x}
         y={hub.y + 92}
         textAnchor="middle"
-        fontFamily="var(--font-archivo), Archivo, sans-serif"
+        fontFamily="var(--font-dm-sans), DM Sans, sans-serif"
         fontSize="40"
-        fontWeight="700"
-        fill="#fff"
+        fontWeight="800"
+        fill="#F3F1E7"
       >
-        cuader<tspan fill="#00c853">campo</tspan>
+        Cuader
+        <tspan fill="#C9DDB0" fontFamily="var(--font-dancing), Dancing Script, cursive" fontSize="48">
+          Campo
+        </tspan>
       </text>
 
       <g transform="translate(110 210)">
-        <rect width="250" height="54" rx="27" fill="#00c853" />
-        <text x="125" y="36" textAnchor="middle" fontFamily="var(--font-archivo), Archivo, sans-serif" fontSize="24" fontWeight="700" fill="#fff" letterSpacing="2">
+        <rect width="250" height="54" rx="27" fill="#7FA35E" />
+        <text x="125" y="36" textAnchor="middle" fontFamily="var(--font-dm-sans), DM Sans, sans-serif" fontSize="24" fontWeight="700" fill="#fff" letterSpacing="2">
           WEB API
         </text>
       </g>
 
-      <text x="110" y="830" fontFamily="var(--font-archivo), Archivo, sans-serif" fontSize="44" fill="#004a71">
+      <text x="110" y="830" fontFamily="var(--font-dm-sans), DM Sans, sans-serif" fontSize="44" fill="#234B2C">
         Tu plataforma agrícola,
       </text>
-      <text x="110" y="890" fontFamily="var(--font-archivo), Archivo, sans-serif" fontSize="48" fontWeight="700" fill="#004a71">
+      <text x="110" y="890" fontFamily="var(--font-dm-sans), DM Sans, sans-serif" fontSize="48" fontWeight="700" fill="#234B2C">
         conectada con tu ERP
       </text>
-      <rect x="110" y="910" width="120" height="8" rx="4" fill="#5ab0e0" />
+      <rect x="110" y="910" width="120" height="8" rx="4" fill="#7FA35E" />
     </svg>
   );
 }

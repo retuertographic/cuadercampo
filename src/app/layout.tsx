@@ -1,31 +1,25 @@
 import type { Metadata } from "next";
-import { Archivo, Poppins, Roboto } from "next/font/google";
+import { DM_Sans, Dancing_Script } from "next/font/google";
 import "./globals.css";
 
-const archivo = Archivo({
-  variable: "--font-archivo",
+const dmSans = DM_Sans({
+  variable: "--font-dm-sans",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "700", "800"],
 });
 
-const poppins = Poppins({
-  variable: "--font-poppins",
+const dancing = Dancing_Script({
+  variable: "--font-dancing",
   subsets: ["latin"],
-  weight: ["300"],
-});
-
-const roboto = Roboto({
-  variable: "--font-roboto",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "700", "900"],
+  weight: ["700"],
 });
 
 const description =
-  "CuaderCampo: cuaderno de campo digital y software de gestión agrícola para agricultores, técnicos y cooperativas.";
+  "CuaderCampo — tu cuaderno de campo, siempre al día. Cuaderno de campo digital y gestión agrícola para agricultores, técnicos y cooperativas.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://cuadercampo.com"),
-  title: "CuaderCampo | Cuaderno de campo digital y agricultura inteligente",
+  title: "CuaderCampo | Tu cuaderno de campo, siempre al día",
   description,
   applicationName: "CuaderCampo",
   openGraph: {
@@ -45,7 +39,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className={`${archivo.variable} ${roboto.variable} ${poppins.variable}`}>
+    <html lang="es" style={{ background: "#F3F1E7" }} className={`${dmSans.variable} ${dancing.variable}`}>
       <head>
         {/* Material Icons: UI glyphs (menu, play, volume...). */}
         <link

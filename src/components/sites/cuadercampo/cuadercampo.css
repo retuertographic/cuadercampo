@@ -1,18 +1,32 @@
 /* CuaderCampo home — styles scoped under .cc */
 
 .cc {
-  --cc-navy: rgb(9, 13, 51);
-  --cc-blue: rgb(0, 74, 113);
-  --cc-green: rgb(0, 200, 83);
-  --cc-text: rgb(48, 65, 86);
-  --cc-muted: rgb(120, 144, 156);
-  --cc-archivo: var(--font-archivo), "Archivo", sans-serif;
-  --cc-roboto: var(--font-roboto), "Roboto", sans-serif;
-  font-family: var(--cc-archivo);
-  font-size: 14px;
+  /* Paleta Huerta */
+  --cc-bosque: #234B2C;
+  --cc-bosque-dark: #16331C;
+  --cc-salvia: #DCE5D0;
+  --cc-crema: #F3F1E7;
+  --cc-terracota: #8A3B1E;
+  --cc-brote: #7FA35E;
+  --cc-brote-light: #C9DDB0;
+  --cc-agua: #DCE9E6;
+  --cc-trigo: #F1E7CC;
+  --cc-tierra: #1E2A1F;
+  --cc-border: #E2DFD0;
+  --cc-navy: var(--cc-bosque);
+  --cc-blue: var(--cc-bosque);
+  --cc-green: var(--cc-brote);
+  --cc-text: var(--cc-tierra);
+  --cc-muted: #5B6A5C;
+  --cc-sans: var(--font-dm-sans), "DM Sans", sans-serif;
+  --cc-script: var(--font-dancing), "Dancing Script", cursive;
+  --cc-archivo: var(--cc-sans);
+  --cc-roboto: var(--cc-sans);
+  font-family: var(--cc-sans);
+  font-size: 16px;
   line-height: 1.5;
   color: var(--cc-text);
-  background: #fff;
+  background: var(--cc-crema);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
@@ -133,7 +147,7 @@
   background: transparent;
   font-weight: 700;
 }
-.cc-btn--ghost:hover { border-color: rgb(40, 193, 109); }
+.cc-btn--ghost:hover { border-color: var(--cc-brote-light); }
 .cc-btn-row {
   display: flex;
   justify-content: center;
@@ -348,7 +362,7 @@
   font-size: 16px;
   font-weight: 700;
 }
-.cc-hero__actions .cc-btn:hover { border-color: rgb(40, 193, 109); }
+.cc-hero__actions .cc-btn:hover { border-color: var(--cc-brote-light); }
 .cc-hero__btn-dark { background: var(--cc-navy); }
 .cc-hero__btn-green { background: var(--cc-green); }
 .cc-hero__right {
@@ -449,7 +463,7 @@
   width: 65%;
   height: auto;
   padding: 5px;
-  border: 1px solid rgb(221, 221, 221);
+  border: 1px solid var(--cc-border);
   border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.2) 0 4px 8px 0, rgba(0, 0, 0, 0.19) 0 6px 20px 0;
   display: inline-block;
@@ -550,8 +564,8 @@
   color: var(--cc-blue);
 }
 .cc-feature--plan { background: #fff; padding: 80px; }
-.cc-feature--terrain { background: rgb(249, 233, 194); padding: 120px 0 68px; }
-.cc-feature--olive { background: rgb(166, 181, 136); padding: 120px 0 68px; }
+.cc-feature--terrain { background: var(--cc-trigo); padding: 120px 0 68px; }
+.cc-feature--olive { background: var(--cc-salvia); padding: 120px 0 68px; }
 .cc-feature__row { display: flex; }
 .cc-feature--plan .cc-feature__row { padding: 48px 0; }
 .cc-feature--terrain .cc-feature__row,
@@ -596,7 +610,7 @@
 .cc-green-sec {
   position: relative;
   color: #fff;
-  background: rgb(93, 153, 105);
+  background: var(--cc-bosque);
   text-shadow: rgba(0, 0, 0, 0.5) 0 0 5px;
   text-align: center;
   padding: 80px 0 0;
@@ -635,7 +649,7 @@
 }
 .cc-promo__left {
   flex: 0 0 52.7%;
-  background: url("/sites/cuadercampo/landpage/fondo_campo.jpg") no-repeat;
+  background-repeat: no-repeat;
   background-size: auto;
 }
 .cc-promo__right { flex: 1 1 0%; }
@@ -655,7 +669,9 @@
 .cc-banner {
   position: relative;
   color: var(--cc-blue);
-  background: url("/sites/cuadercampo/landpage/campo_nubes.jpg") center center / cover no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
   padding: 60px 0 147px;
   text-align: center;
 }
@@ -755,7 +771,7 @@
   font-size: 13px;
   line-height: 1.5;
   font-weight: 500;
-  color: rgba(48, 65, 86, 0.54);
+  color: rgba(30, 42, 31, 0.54);
 }
 .cc-products__hub { display: block; width: 100%; height: auto; }
 .cc-products__hubwrap { padding-bottom: 6px; }
@@ -858,10 +874,10 @@
   font-size: 13px;
   font-weight: 600;
   line-height: 36px;
-  color: rgb(10, 11, 15);
+  color: var(--cc-tierra);
   text-transform: uppercase;
 }
-.cc-muted { color: rgba(48, 65, 86, 0.54); }
+.cc-muted { color: rgba(30, 42, 31, 0.54); }
 .cc-dialog__info .cc-muted { margin: 4px 0 12px; font-size: 14px; line-height: 1.5; }
 .cc-dialog__phone { font-size: 20px; font-weight: 500; line-height: 32px; text-align: center; margin-bottom: 16px; }
 .cc-dialog__mail { font-size: 15px; font-weight: 500; line-height: 24px; text-align: center; margin-bottom: 16px; }
@@ -897,7 +913,7 @@
   font-size: 14px;
   font-weight: 500;
   color: #fff;
-  background: rgb(0, 65, 122);
+  background: var(--cc-bosque);
   cursor: pointer;
   box-shadow:
     0 3px 1px -2px rgba(0, 0, 0, 0.2),
@@ -919,7 +935,7 @@
   width: 100%;
   height: 51px;
   padding: 14px 12px 0;
-  border: 1px solid rgba(48, 65, 86, 0.38);
+  border: 1px solid rgba(30, 42, 31, 0.38);
   border-radius: 5px;
   font: inherit;
   font-size: 14px;
@@ -928,7 +944,7 @@
   outline: none;
   transition: border-color 0.15s;
 }
-.cc-field__input:hover { border-color: rgba(48, 65, 86, 0.87); }
+.cc-field__input:hover { border-color: rgba(30, 42, 31, 0.87); }
 textarea.cc-field__input { height: 114px; padding-top: 20px; resize: vertical; }
 .cc-field__label {
   position: absolute;
@@ -937,7 +953,7 @@ textarea.cc-field__input { height: 114px; padding-top: 20px; resize: vertical; }
   padding: 0 2px;
   font-size: 14px;
   line-height: 15px;
-  color: rgba(48, 65, 86, 0.6);
+  color: rgba(30, 42, 31, 0.6);
   background: #fff;
   pointer-events: none;
   transform-origin: left top;
@@ -949,16 +965,16 @@ textarea.cc-field__input { height: 114px; padding-top: 20px; resize: vertical; }
 .cc-field__input:not(:placeholder-shown) + .cc-field__label { max-width: calc(133% - 20px); }
 .cc-field__input:focus {
   border-width: 2px;
-  border-color: rgb(0, 65, 122);
+  border-color: var(--cc-bosque);
   padding-left: 11px;
 }
 .cc-field__input:focus + .cc-field__label,
 .cc-field__input:not(:placeholder-shown) + .cc-field__label {
   transform: translateY(-23px) scale(0.75);
 }
-.cc-field__input:focus + .cc-field__label { color: rgb(0, 65, 122); }
-.cc-field__input:focus + .cc-field__label i { color: rgb(255, 142, 77); }
-.cc-field__input:not(:focus):not(:placeholder-shown):invalid { border-color: rgb(255, 142, 77); }
+.cc-field__input:focus + .cc-field__label { color: var(--cc-bosque); }
+.cc-field__input:focus + .cc-field__label i { color: var(--cc-terracota); }
+.cc-field__input:not(:focus):not(:placeholder-shown):invalid { border-color: var(--cc-terracota); }
 .cc-field-row { display: flex; gap: 12px; }
 .cc-field-row > * { flex: 1 1 0%; min-width: 0; }
 
@@ -971,7 +987,7 @@ textarea.cc-field__input { height: 114px; padding-top: 20px; resize: vertical; }
   cursor: pointer;
   margin: 8px 0;
 }
-.cc-check input { width: 16px; height: 16px; accent-color: rgb(0, 65, 122); margin: 0; }
+.cc-check input { width: 16px; height: 16px; accent-color: var(--cc-bosque); margin: 0; }
 
 .cc-drawer {
   position: fixed;
@@ -1046,12 +1062,12 @@ textarea.cc-field__input { height: 114px; padding-top: 20px; resize: vertical; }
   margin: 16px 0 0;
   padding: 12px 14px;
   border-radius: 6px;
-  background: rgba(0, 200, 83, 0.1);
+  background: var(--cc-salvia);
   color: var(--cc-text);
   font-size: 13px;
   line-height: 1.5;
 }
-.cc-face__notice a { color: rgb(0, 65, 122); font-weight: 600; }
+.cc-face__notice a { color: var(--cc-bosque); font-weight: 600; }
 .cc-face__logo .cc-logo { font-size: 24px; }
 .cc-face__logo .cc-logo__mark { width: 40px; height: 40px; }
 div.cc-face__logo { display: flex; justify-content: center; }
@@ -1072,7 +1088,159 @@ div.cc-face__logo { display: flex; justify-content: center; }
   color: var(--cc-blue);
   margin: 0 0 24px;
 }
-.cc-legal__main a { color: rgb(0, 65, 122); font-weight: 600; }
+.cc-legal__main a { color: var(--cc-bosque); font-weight: 600; }
 
 .cc [id] { scroll-margin-top: 64px; }
 html:has(.cc) { scroll-behavior: smooth; }
+
+
+/* =====================================================================
+   Marca CuaderCampo — Paleta Huerta, DM Sans + Dancing Script
+   ===================================================================== */
+
+/* Logo */
+.cc-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--cc-sans);
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  white-space: nowrap;
+  color: var(--cc-crema);
+}
+.cc-logo__mark { width: 44px; height: 44px; flex: 0 0 auto; }
+.cc-logo__word { display: inline-flex; align-items: baseline; }
+.cc-logo__accent,
+.cc-script {
+  font-family: var(--cc-script);
+  font-weight: 700;
+  letter-spacing: 0;
+}
+.cc-logo__accent { font-size: 1.16em; margin-left: 2px; color: var(--cc-brote-light); }
+.cc-logo--dark { color: var(--cc-tierra); }
+.cc-logo--dark .cc-logo__accent { color: var(--cc-bosque); }
+.cc-nav__balance { width: 236px; }
+
+/* Nav */
+.cc-nav { box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08), 0 6px 18px rgba(22, 51, 28, 0.25); }
+.cc-navbtn {
+  text-transform: none;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0;
+  border-radius: 10px;
+}
+.cc-navbtn:hover { background: rgba(243, 241, 231, 0.12); }
+
+/* Typography: títulos 800, texto 400–500, mínimo 14px */
+.cc-body,
+.cc-slogan p {
+  font-weight: 400;
+  letter-spacing: 0;
+  font-size: 18px;
+  line-height: 1.7;
+}
+.cc-hero__pretitle {
+  font-family: var(--cc-script);
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 1.1;
+  color: var(--cc-brote-light);
+}
+.cc-hero__title {
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  font-size: clamp(44px, 6.4vw, 92px);
+  line-height: 1.05;
+  margin-bottom: 12px;
+}
+.cc-hero__title .cc-script { font-size: 1.14em; color: var(--cc-brote-light); margin-left: 2px; }
+.cc-hero__tagline { font-size: 22px; font-weight: 500; color: var(--cc-crema); margin-bottom: 18px; }
+.cc-hero__tagline .cc-script { font-size: 1.3em; color: var(--cc-trigo); }
+.cc-hero__subtitle { font-family: var(--cc-sans); font-weight: 400; }
+.cc-slogan h2,
+.cc-audience h3,
+.cc-feature__title,
+.cc-green-sec h1,
+.cc-banner h2,
+.cc-banner h3,
+.cc-products__head h2,
+.cc-contact__text h2 {
+  font-family: var(--cc-sans);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.cc-band__title { font-weight: 800; letter-spacing: -0.01em; }
+.cc-band__sub { font-size: 16px; line-height: 1.5; color: var(--cc-tierra); }
+.cc-band__col--dark .cc-band__title { color: var(--cc-crema); }
+.cc-band__col--dark .cc-band__sub { color: var(--cc-salvia); }
+.cc-slogan .cc-green { color: var(--cc-brote-light); }
+.cc-feature--plan .cc-feature__text .cc-body,
+.cc-feature--plan .cc-feature__mobile .cc-body { color: var(--cc-muted); }
+.cc-feature--plan { background: var(--cc-crema); }
+.cc-products__head .cc-body { color: var(--cc-salvia); }
+.cc-card__desc { font-size: 14px; color: var(--cc-muted); font-weight: 500; }
+.cc-card__name { text-transform: none; font-weight: 800; font-size: 22px; color: var(--cc-tierra); }
+.cc-contact__sub { font-size: 15px; color: var(--cc-salvia); }
+.cc-dialog__label { font-size: 14px; font-weight: 700; letter-spacing: 0.08em; }
+.cc-green-sec { text-shadow: none; }
+.cc-green-sec h5 { font-family: var(--cc-sans); font-weight: 500; }
+.cc-promo__left h1,
+.cc-promo__left h5 { text-shadow: 0 2px 12px rgba(22, 51, 28, 0.55); }
+.cc-community__text { font-family: var(--cc-sans); font-weight: 500; color: var(--cc-salvia); }
+.cc-community h1 .cc-script { color: var(--cc-brote-light); font-size: 1.15em; letter-spacing: 0; }
+
+/* Buttons — 700, radio 14 */
+.cc-btn {
+  height: 52px;
+  line-height: 1;
+  padding: 0 26px;
+  border-radius: 14px;
+  border: 1px solid transparent;
+  font-family: var(--cc-sans);
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+  box-shadow: 0 6px 16px rgba(22, 51, 28, 0.14);
+}
+.cc-btn--demo { background: var(--cc-bosque); color: #fff; border-color: var(--cc-bosque); }
+.cc-btn--demo:hover { background: var(--cc-bosque-dark); }
+.cc-btn--normal { background: #fff; color: var(--cc-tierra); border-color: var(--cc-border); }
+.cc-btn--onblue { background: var(--cc-crema); color: var(--cc-bosque); border-color: var(--cc-crema); }
+.cc-btn--ghost { background: transparent; color: var(--cc-crema); border: 2px solid var(--cc-crema); font-weight: 700; }
+.cc-btn--ghost:hover { border-color: var(--cc-brote-light); }
+.cc-hero__actions .cc-btn { font-size: 17px; font-weight: 700; border-width: 1px; }
+.cc-hero__btn-dark { background: var(--cc-bosque); border-color: var(--cc-bosque) !important; color: #fff; }
+.cc-hero__btn-green { background: var(--cc-crema); border-color: var(--cc-crema) !important; color: var(--cc-bosque) !important; }
+.cc-hero__actions .cc-btn:hover { border-color: var(--cc-brote-light) !important; }
+.cc-raised { border-radius: 12px; font-weight: 700; height: 44px; font-size: 15px; box-shadow: none; }
+.cc-raised:disabled { background: var(--cc-border); color: var(--cc-muted); }
+.cc-flatbtn { border-radius: 12px; font-size: 15px; font-weight: 700; }
+
+/* Surfaces */
+.cc-card { border-radius: 24px; border: 1px solid var(--cc-border); box-shadow: 0 10px 30px rgba(22, 51, 28, 0.18); }
+.cc-slogan__img { border-color: rgba(243, 241, 231, 0.3); border-radius: 18px; }
+.cc-dialog { border-radius: 28px; padding: 32px 32px 0; background: #fff; }
+.cc-field__input { border-radius: 12px; border-color: var(--cc-border); }
+.cc-field__input:hover { border-color: var(--cc-muted); }
+.cc-menu { border-radius: 16px; }
+.cc-menu__item { font-size: 15px; font-weight: 500; }
+.cc-audience { background: var(--cc-salvia); color: var(--cc-tierra); }
+.cc-audience h3 { color: var(--cc-bosque); }
+.cc-audience__item .cc-bold { font-weight: 800; color: var(--cc-bosque); }
+.cc-footer { background: var(--cc-tierra); box-shadow: none; }
+.cc-footer .cc-navbtn { font-size: 14px; }
+.cc-footer__copy { font-size: 14px; color: var(--cc-salvia); opacity: 1; }
+.cc-face h1 { font-weight: 800; }
+.cc-face__notice { font-size: 14px; background: var(--cc-salvia); }
+.cc-face__notice a,
+.cc-legal__main a { color: var(--cc-bosque); }
+.cc-legal__main h1 { color: var(--cc-bosque); }
+.cc-check input { accent-color: var(--cc-bosque); }
+@media (max-width: 959.98px) {
+  .cc-hero__btn-dark { border-color: rgba(243, 241, 231, 0.6) !important; }
+}

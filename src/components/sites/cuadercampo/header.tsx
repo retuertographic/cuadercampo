@@ -60,7 +60,7 @@ export function Header() {
               onClick={() => setOpen(false)}
             >
               <span className="mi" aria-hidden>chevron_right</span>
-              {l.label === "KIT DIGITAL" ? "Kit Digital" : l.label}
+              {l.label}
             </Link>
           ))}
         </div>

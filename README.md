@@ -1,8 +1,10 @@
 # CuaderCampo
 
-Web de **CuaderCampo** (https://cuadercampo.com): cuaderno de campo digital y software de gestión agrícola.
+Web de **CuaderCampo** (https://cuadercampo.com) — *Tu cuaderno de campo, siempre al día*.
 
-Next.js 16 (App Router) · React 19 · TypeScript · CSS propio con prefijo `cc-`.
+Next.js 16 (App Router, exportación estática) · React 19 · TypeScript · CSS propio con prefijo `cc-` · Marca: paleta Huerta, DM Sans + Dancing Script.
+
+Despliegue: GitHub Pages mediante `.github/workflows/deploy-pages.yml` en cada push.
 
 ## Desarrollo
 

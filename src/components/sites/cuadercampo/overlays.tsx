@@ -148,7 +148,7 @@ function ContactDialog({ onClose }: { onClose: () => void }) {
             <Field label="Teléfono móvil" name="telefono" type="tel" />
             <Field label="Mensaje" name="mensaje" multiline />
             <button type="submit" className="cc-raised cc-raised--block" disabled={!valid}>
-              ENVIAR
+              Enviar
             </button>
           </form>
         </div>

@@ -1,6 +1,10 @@
-export const asset = (p: string) => `/sites/cuadercampo/${p}`;
+/** Set at build time when the site is served under a sub-path (e.g. GitHub Pages without custom domain). */
+export const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
+export const asset = (p: string) => `${BASE_PATH}/sites/cuadercampo/${p}`;
 
 export const BRAND = "CuaderCampo";
+export const TAGLINE = "Tu cuaderno de campo, siempre al día";
 export const SITE_URL = "https://cuadercampo.com";
 export const EMAIL = "contacto@cuadercampo.com";
 
@@ -21,7 +25,7 @@ export const NAV_LINKS = [
   { label: "Productos", href: "/#productos" },
   { label: "Cuaderno de campo", href: "/#cuaderno-de-campo" },
   { label: "Certificación", href: "/#certificaciones" },
-  { label: "KIT DIGITAL", href: "/#kit-digital" },
+  { label: "Kit Digital", href: "/#kit-digital" },
 ];
 
 export const AUDIENCE = [
@@ -57,27 +61,27 @@ export const AUDIENCE = [
 
 export const BAND = [
   {
-    bg: "rgb(254, 237, 201)",
-    title: "DESPREOCÚPATE CUMPLIENDO TODAS LAS CERTIFICACIONES",
+    bg: "#F1E7CC",
+    title: "Despreocúpate cumpliendo todas las certificaciones",
     img: "landpage/movil1.jpg",
     text: "Ponemos a tu disposición una aplicación que te ayudará a cumplir con todas las normativas vigentes de la forma más sencilla y natural",
   },
   {
-    bg: "rgb(200, 149, 111)",
-    title: "PRODUCE MÁS Y MEJOR, DESDE HOY MISMO",
+    bg: "#DCE5D0",
+    title: "Produce más y mejor, desde hoy mismo",
     img: "landpage/movil2.jpg",
     text: "Consigue mejorar el rendimiento de tus cultivos de forma inmediata con la información más completa generada por la aplicación",
   },
   {
-    bg: "rgb(166, 181, 136)",
-    title: "ANALIZA TODOS TUS COSTES EN TIEMPO REAL",
+    bg: "#DCE9E6",
+    title: "Analiza todos tus costes en tiempo real",
     img: "landpage/movil3.jpg",
     text: "Diseña tu propio plan contable y pondremos a tu disposición los mejores indicadores y análisis para tu toma de decisiones",
   },
   {
-    bg: "rgb(80, 118, 91)",
+    bg: "#234B2C",
     dark: true,
-    title: "REÚNE TODA LA TECNOLOGÍA EN UNA ÚNICA PLATAFORMA",
+    title: "Reúne toda la tecnología en una única plataforma",
     img: "landpage/movil4.jpg",
     text: "Conecta todos tus dispositivos a nuestro SmartFarming Hub y analiza toda la información a través de la misma aplicación",
   },

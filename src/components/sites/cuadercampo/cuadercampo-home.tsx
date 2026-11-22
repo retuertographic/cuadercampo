@@ -109,7 +109,10 @@ export function CuaderCampoHome() {
                 <div className="cc-hero__col">
                   <Reveal className="cc-hero__pretitle">Bienvenido a</Reveal>
                   <Reveal as="h1" className="cc-hero__title" delay={100}>
-                    CUADERCAMPO
+                    Cuader<span className="cc-script">Campo</span>
+                  </Reveal>
+                  <Reveal className="cc-hero__tagline" delay={150}>
+                    Tu cuaderno de campo, <span className="cc-script">siempre al día</span>
                   </Reveal>
                   <Reveal className="cc-hero__subtitle" delay={200}>
                     Únase a la digitalización agrícola de la mano de la mejor plataforma
@@ -160,7 +163,7 @@ export function CuaderCampoHome() {
                 </div>
                 <div>
                   <Reveal as="p" delay={100}>
-                    <strong className="cc-green">CUADERCAMPO</strong> es una plataforma{" "}
+                    <strong className="cc-green">CuaderCampo</strong> es una plataforma{" "}
                     <strong>“smarthub farming”</strong> capaz de aglutinar todas las tecnologías
                     aplicadas al campo en un único entorno tecnológico, satisfaciendo así
                     cualquier requerimiento de información relacionado con una explotación
@@ -228,9 +231,9 @@ export function CuaderCampoHome() {
           <section className="cc-green-sec cc-community">
             <div className="cc-container">
               <Reveal as="h1">
-                ÚNETE A LA COMUNIDAD
+                Únete a la comunidad
                 <br />
-                CUADERCAMPO
+                Cuader<span className="cc-script">Campo</span>
               </Reveal>
               <Reveal as="p" className="cc-community__text" delay={100}>
                 Agricultores, técnicos y cooperativas que quieren digitalizar su explotación de
@@ -247,7 +250,11 @@ export function CuaderCampoHome() {
           {/* Digital notebook / Kit Digital */}
           <section className="cc-green-sec cc-promo-sec">
             <div className="cc-promo">
-              <div id="cuaderno-de-campo" className="cc-promo__left">
+              <div
+                id="cuaderno-de-campo"
+                className="cc-promo__left"
+                style={{ backgroundImage: `url(${asset("landpage/fondo_campo.jpg")})` }}
+              >
                 <Reveal as="h1">
                   Cuaderno de
                   <br />
@@ -285,12 +292,15 @@ export function CuaderCampoHome() {
           </section>
 
           {/* Banner */}
-          <section className="cc-banner">
+          <section
+            className="cc-banner"
+            style={{ backgroundImage: `url(${asset("landpage/campo_nubes.jpg")})` }}
+          >
             <div className="cc-container">
               <div className="cc-banner__inner">
-                <Reveal as="h3">INNOVACIÓN AL SERVICIO AGRÍCOLA</Reveal>
+                <Reveal as="h3">Innovación al servicio agrícola</Reveal>
                 <Reveal as="h2" delay={100}>
-                  CON CUADERCAMPO, ÚNETE A LA REVOLUCIÓN DEL SMART FARMING
+                  Con CuaderCampo, únete a la revolución del Smart Farming
                 </Reveal>
                 <Reveal as="p" delay={200}>
                   CuaderCampo es una plataforma tecnológica “smarthub farming” que aúna todas las
@@ -346,7 +356,7 @@ export function CuaderCampoHome() {
             </div>
             <div id="contacto" className="cc-contact">
               <div className="cc-contact__text">
-                <Reveal as="h2">CONTACTA YA CON NOSOTROS</Reveal>
+                <Reveal as="h2">Contacta ya con nosotros</Reveal>
                 <Reveal className="cc-contact__sub" delay={50}>
                   Estamos aquí para ayudarte, nuestra aspiración es dar el mejor servicio al sector
                   agrícola.
@@ -390,7 +400,9 @@ export function CuaderCampoHome() {
               </Link>
             ))}
           </nav>
-          <span className="cc-footer__copy">© {new Date().getFullYear()} CuaderCampo · cuadercampo.com</span>
+          <span className="cc-footer__copy">
+            © {new Date().getFullYear()} CuaderCampo · Tu cuaderno de campo, siempre al día
+          </span>
         </footer>
       </OverlayProvider>
     </div>
