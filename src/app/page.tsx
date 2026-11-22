@@ -1,5 +1,5 @@
-import { KaampoHome } from "@/components/sites/kaampo/kaampo-home";
+import { CuaderCampoHome } from "@/components/sites/cuadercampo/cuadercampo-home";
 
 export default function Home() {
-  return <KaampoHome />;
+  return <CuaderCampoHome />;
 }

@@ -1,22 +1,27 @@
-export const asset = (p: string) => `/sites/kaampo/${p}`;
+export const asset = (p: string) => `/sites/cuadercampo/${p}`;
 
-export const SOURCE = "https://www.kaampo.com";
+export const BRAND = "CuaderCampo";
+export const SITE_URL = "https://cuadercampo.com";
+export const EMAIL = "contacto@cuadercampo.com";
+
+/**
+ * Datos de contacto FICTICIOS de ejemplo. Sustituir por los reales antes de publicar.
+ */
+export const CONTACT = {
+  street: "Calle del Ejemplo, 1",
+  city: "00000 Ciudad de Ejemplo",
+  phones: [
+    { label: "(+34) 600 000 000", tel: "+34600000000" },
+    { label: "(+34) 900 000 000", tel: "+34900000000" },
+  ],
+};
 
 export const NAV_LINKS = [
   { label: "Inicio", href: "/" },
-  { label: "Productos", href: `${SOURCE}/home/software-agricola` },
-  { label: "Cuaderno de campo", href: `${SOURCE}/home/cuaderno-de-campo-digital` },
-  { label: "Certificación", href: `${SOURCE}/home/certificacion` },
-  { label: "KIT DIGITAL", href: `${SOURCE}/kit_digital` },
-];
-
-export const LANGUAGES = [
-  { code: "es", label: "Español", flag: "flags/esp-flag.ico" },
-  { code: "en", label: "English", flag: "flags/eng-flag.ico" },
-  { code: "fr", label: "Francés", flag: "flags/fr-flag.ico" },
-  { code: "pt", label: "Portugés", flag: "flags/por-flag.ico" },
-  { code: "pt-br", label: "Portugés (BR)", flag: "flags/brz-flag.ico" },
-  { code: "ca", label: "Català", flag: "flags/cat-flag.ico" },
+  { label: "Productos", href: "/#productos" },
+  { label: "Cuaderno de campo", href: "/#cuaderno-de-campo" },
+  { label: "Certificación", href: "/#certificaciones" },
+  { label: "KIT DIGITAL", href: "/#kit-digital" },
 ];
 
 export const AUDIENCE = [
@@ -67,10 +72,11 @@ export const BAND = [
     bg: "rgb(166, 181, 136)",
     title: "ANALIZA TODOS TUS COSTES EN TIEMPO REAL",
     img: "landpage/movil3.jpg",
-    text: "Diseña tu propio plan contable y pondremos a tu disposición, los mejores indicadores y análisis para tu toma de decisiones",
+    text: "Diseña tu propio plan contable y pondremos a tu disposición los mejores indicadores y análisis para tu toma de decisiones",
   },
   {
     bg: "rgb(80, 118, 91)",
+    dark: true,
     title: "REÚNE TODA LA TECNOLOGÍA EN UNA ÚNICA PLATAFORMA",
     img: "landpage/movil4.jpg",
     text: "Conecta todos tus dispositivos a nuestro SmartFarming Hub y analiza toda la información a través de la misma aplicación",
@@ -82,10 +88,10 @@ export type Feature = {
   id?: string;
   title: string;
   text: string;
-  img: string;
+  /** Screenshot; omitted when the feature renders its own illustration. */
+  img?: string;
   imgW: number;
   imgH: number;
-  /** Mobile layout shows the screenshot between title and text. */
   mobileImg: boolean;
 };
 
@@ -93,8 +99,7 @@ export const FEATURES: Record<string, Feature> = {
   connect: {
     variant: "plan",
     title: "Conecta con cualquier otra plataforma",
-    text: "Gracias a su bus de interoperabilidad y a su completa Web API de servicios, usted se podrá conectar a cualquier otra plataforma de gestión disponible en el mercado para compartir su información de forma automatizada",
-    img: "landpage/interoperability.png",
+    text: "Gracias a su bus de interoperabilidad y a su completa Web API de servicios, podrás conectarte a cualquier otra plataforma de gestión disponible en el mercado para compartir tu información de forma automatizada",
     imgW: 1586,
     imgH: 992,
     mobileImg: true,
@@ -121,7 +126,7 @@ export const FEATURES: Record<string, Feature> = {
   costs: {
     variant: "olive",
     id: "costes",
-    title: "Analice sus costes a tiempo real",
+    title: "Analice sus costes en tiempo real",
     text: "Utilice nuestro plan de cuentas contable o diseñe el suyo propio y pondremos a su disposición análisis e indicadores de gran valor para su toma de decisiones",
     img: "landpage/image4.png",
     imgW: 1536,
@@ -135,16 +140,11 @@ export const FEATURES: Record<string, Feature> = {
     img: "landpage/image6.png",
     imgW: 900,
     imgH: 455,
-    mobileImg: false,
+    mobileImg: true,
   },
 };
 
-export const CLIENT_ROWS = [
-  ["fruca", "coplaca", "sateljable", "elmurtal", "biogard"],
-  ["agro-rincon", "naturvie", "platanos-lito", "agusa", "cultesa", "eea"],
-  ["aecom", "pistachos-del-sol", "pladimsa", "raymi", "canarisol", "viverossevilla"],
-  ["lycaste", "coisba", "cartagenafresh", "palmafrut", "sanifruit"],
-];
+export const ERP_PARTNERS = ["Microsoft Dynamics", "a3ERP", "Sage", "Odoo", "Holded", "SAP"];
 
 export const PRODUCTS = [
   { img: "productos/operario.jpg", name: "Operario", desc: "Tareas y labores de campo" },
@@ -155,9 +155,9 @@ export const PRODUCTS = [
   { img: "productos/barcode.jpg", name: "Trazabilidad", desc: "Agricultura de precisión" },
 ];
 
-export const FOOTER_LINKS = [
-  { label: "Términos y servicios", href: `${SOURCE}/home/politica-de-privacidad` },
-  { label: "Política de cookies", href: `${SOURCE}/home/gestion-de-cookies` },
-  { label: "Compromiso de igualdad", href: `${SOURCE}/home/compromiso-de-igualdad` },
-  { label: "Transparencia", href: "https://creativevending.canariastransparente.org" },
+export const LEGAL_PAGES = [
+  { slug: "terminos-y-servicios", label: "Términos y servicios" },
+  { slug: "politica-de-cookies", label: "Política de cookies" },
+  { slug: "compromiso-de-igualdad", label: "Compromiso de igualdad" },
+  { slug: "transparencia", label: "Transparencia" },
 ];

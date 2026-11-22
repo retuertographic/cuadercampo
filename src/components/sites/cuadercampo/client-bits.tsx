@@ -39,7 +39,7 @@ export function Reveal({
   return (
     <Tag
       ref={ref as never}
-      className={`kp-reveal${inView ? " is-in" : ""} ${className}`}
+      className={`cc-reveal${inView ? " is-in" : ""} ${className}`}
       style={{ transitionDelay: `${delay}ms`, ...style }}
     >
       {children}
@@ -63,7 +63,7 @@ export function HeroVideo() {
     <>
       <video
         ref={ref}
-        className="kp-hero__video"
+        className="cc-hero__video"
         autoPlay
         muted
         loop
@@ -75,7 +75,7 @@ export function HeroVideo() {
       </video>
       <button
         type="button"
-        className="kp-hero__sound"
+        className="cc-hero__sound"
         aria-label={muted ? "Activar sonido" : "Silenciar"}
         onClick={toggle}
       >

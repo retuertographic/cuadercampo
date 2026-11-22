@@ -9,7 +9,8 @@ import {
   type FormEvent,
   type ReactNode,
 } from "react";
-import { asset } from "./content";
+import { asset, CONTACT, EMAIL } from "./content";
+import { Logo } from "./logo";
 
 type Overlay = "none" | "contact" | "login";
 
@@ -38,7 +39,7 @@ export function OverlayProvider({ children }: { children: ReactNode }) {
   return (
     <OverlayContext.Provider value={setOpen}>
       {children}
-      {open !== "none" && <div className="kp-backdrop" onClick={close} />}
+      {open !== "none" && <div className="cc-backdrop" onClick={close} />}
       {open === "contact" && <ContactDialog onClose={close} />}
       {open === "login" && <LoginDrawer />}
     </OverlayContext.Provider>
@@ -77,17 +78,17 @@ function Field({
   autoFocus?: boolean;
 }) {
   const common = {
-    className: "kp-field__input",
+    className: "cc-field__input",
     name,
-    id: `kp-${name}`,
+    id: `cc-${name}`,
     required: true,
     placeholder: " ",
     autoFocus,
   };
   return (
-    <div className="kp-field">
+    <div className="cc-field">
       {multiline ? <textarea {...common} /> : <input type={type} {...common} />}
-      <label className="kp-field__label" htmlFor={`kp-${name}`}>
+      <label className="cc-field__label" htmlFor={`cc-${name}`}>
         {label} <i>*</i>
       </label>
     </div>
@@ -104,7 +105,7 @@ function useFormValid() {
 function ContactDialog({ onClose }: { onClose: () => void }) {
   const { valid, onInput } = useFormValid();
 
-  // No Kaampo backend here: hand the request to the visitor's mail client.
+  // No backend yet: hand the request to the visitor's mail client.
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const d = new FormData(e.currentTarget);
@@ -116,40 +117,43 @@ function ContactDialog({ onClose }: { onClose: () => void }) {
       "",
       String(d.get("mensaje")),
     ].join("\n");
-    window.location.href = `mailto:contacto@kaampo.com?subject=${encodeURIComponent(
+    window.location.href = `mailto:${EMAIL}?subject=${encodeURIComponent(
       "Formulario de contacto",
     )}&body=${encodeURIComponent(body)}`;
   };
 
   return (
-    <div className="kp-dialog-wrap">
-      <div className="kp-dialog" role="dialog" aria-modal="true" aria-label="Formulario de contacto">
-        <div className="kp-dialog__body">
-          <div className="kp-dialog__info">
-            <span className="kp-dialog__label">Formulario de contacto</span>
-            <p className="kp-muted">
+    <div className="cc-dialog-wrap">
+      <div className="cc-dialog" role="dialog" aria-modal="true" aria-label="Formulario de contacto">
+        <div className="cc-dialog__body">
+          <div className="cc-dialog__info">
+            <span className="cc-dialog__label">Formulario de contacto</span>
+            <p className="cc-muted">
               Envíanos tus datos de contacto y comprueba cómo podemos ayudarte a mejorar la
               gestión de tu explotación
             </p>
-            <a className="kp-dialog__phone" href="tel:+34677666596">(+34) 677 66 65 96</a>
-            <a className="kp-dialog__phone" href="tel:+34637563016">(+34) 637 56 30 16</a>
-            <a className="kp-dialog__mail" href="mailto:contacto@kaampo.com">contacto@kaampo.com</a>
+            {CONTACT.phones.map((p) => (
+              <a key={p.tel} className="cc-dialog__phone" href={`tel:${p.tel}`}>
+                {p.label}
+              </a>
+            ))}
+            <a className="cc-dialog__mail" href={`mailto:${EMAIL}`}>{EMAIL}</a>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={asset("avisos.jpg")} alt="" width={750} height={500} />
           </div>
-          <form className="kp-dialog__form" onInput={onInput} onSubmit={onSubmit}>
+          <form className="cc-dialog__form" onInput={onInput} onSubmit={onSubmit}>
             <Field label="Nombre y apellidos" name="nombre" autoFocus />
             <Field label="Empresa" name="empresa" />
             <Field label="Correo electrónico" name="email" type="email" />
             <Field label="Teléfono móvil" name="telefono" type="tel" />
             <Field label="Mensaje" name="mensaje" multiline />
-            <button type="submit" className="kp-raised kp-raised--block" disabled={!valid}>
+            <button type="submit" className="cc-raised cc-raised--block" disabled={!valid}>
               ENVIAR
             </button>
           </form>
         </div>
-        <div className="kp-dialog__actions">
-          <button type="button" className="kp-flatbtn" onClick={onClose}>
+        <div className="cc-dialog__actions">
+          <button type="button" className="cc-flatbtn" onClick={onClose}>
             <span className="mi" aria-hidden>arrow_back</span> Volver
           </button>
         </div>
@@ -158,72 +162,80 @@ function ContactDialog({ onClose }: { onClose: () => void }) {
   );
 }
 
-const APP_URL = "https://www.kaampo.com/";
-
 function LoginDrawer() {
   const [flipped, setFlipped] = useState(false);
   const login = useFormValid();
   const signup = useFormValid();
-  // Authentication lives in the real Kaampo app; submitting hands off to it.
+  const [notice, setNotice] = useState(false);
+  // The CuaderCampo web app is not live yet: tell the visitor how to get access.
   const toApp = (e: FormEvent) => {
     e.preventDefault();
-    window.open(APP_URL, "_blank", "noopener");
+    setNotice(true);
   };
+  const noticeBox = notice && (
+    <p className="cc-face__notice" role="status">
+      El acceso a la plataforma estará disponible muy pronto. Escríbenos a{" "}
+      <a href={`mailto:${EMAIL}`}>{EMAIL}</a> y te daremos de alta.
+    </p>
+  );
 
   return (
-    <aside className="kp-drawer" role="dialog" aria-modal="true" aria-label="Acceso">
-      <div className={`kp-flipper${flipped ? " is-flipped" : ""}`}>
-        <div className="kp-face" aria-hidden={flipped}>
+    <aside className="cc-drawer" role="dialog" aria-modal="true" aria-label="Acceso">
+      <div className={`cc-flipper${flipped ? " is-flipped" : ""}`}>
+        <div className="cc-face" aria-hidden={flipped}>
           <h1>¡Bienvenido!</h1>
-          <p className="kp-muted">Introduzca sus credenciales para iniciar sesión</p>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className="kp-face__logo" src={asset("reglogo.png")} alt="Kaampo" width={160} height={52} />
+          <p className="cc-muted">Introduzca sus credenciales para iniciar sesión</p>
+          <div className="cc-face__logo">
+            <Logo tone="dark" />
+          </div>
           <form onInput={login.onInput} onSubmit={toApp}>
             <Field label="Email" name="login-email" autoFocus />
             <Field label="Contraseña" name="login-pass" type="password" />
-            <label className="kp-check">
+            <label className="cc-check">
               <input type="checkbox" name="remember" /> Recordarme
             </label>
-            <div className="kp-face__links">
-              <button type="submit" className="kp-raised" disabled={!login.valid}>Entrar</button>
+            <div className="cc-face__links">
+              <button type="submit" className="cc-raised" disabled={!login.valid}>Entrar</button>
               <span>o</span>
-              <button type="button" className="kp-link" onClick={() => setFlipped(true)}>
+              <button type="button" className="cc-link" onClick={() => setFlipped(true)}>
                 Aún no estoy registrado
               </button>
             </div>
           </form>
+          {!flipped && noticeBox}
           <hr />
           <a
-            className="kp-link kp-face__center"
-            href="mailto:contacto@kaampo.com?subject=Recuperar%20contrase%C3%B1a"
+            className="cc-link cc-face__center"
+            href={`mailto:${EMAIL}?subject=Recuperar%20contrase%C3%B1a`}
           >
             Vaya, no recuerdo la contraseña
           </a>
         </div>
-        <div className="kp-face kp-face--back" aria-hidden={!flipped}>
+        <div className="cc-face cc-face--back" aria-hidden={!flipped}>
           <h1>¡Vamos a empezar!</h1>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className="kp-face__logo" src={asset("login.png")} alt="" width={160} height={98} style={{ marginBottom: 32 }} />
+          <img className="cc-face__logo" src={asset("login.png")} alt="" width={160} height={98} style={{ marginBottom: 32 }} />
           <form onInput={signup.onInput} onSubmit={toApp}>
-            <div className="kp-field-row">
+            <div className="cc-field-row">
               <Field label="Nombre" name="reg-nombre" />
               <Field label="Apellidos" name="reg-apellidos" />
             </div>
             <Field label="Email" name="reg-email" type="email" />
             <Field label="Teléfono de contacto" name="reg-tel" type="tel" />
-            <div className="kp-field-row">
+            <div className="cc-field-row">
               <Field label="Contraseña" name="reg-pass" type="password" />
               <Field label="Confirmar contraseña" name="reg-pass2" type="password" />
             </div>
-            <label className="kp-check">
+            <label className="cc-check">
               <input type="checkbox" name="terms" required /> Acepto los términos y condiciones
             </label>
-            <button type="submit" className="kp-raised kp-raised--block" disabled={!signup.valid} style={{ marginTop: 16 }}>
+            <button type="submit" className="cc-raised cc-raised--block" disabled={!signup.valid} style={{ marginTop: 16 }}>
               Registrar
             </button>
           </form>
+          {flipped && noticeBox}
           <hr />
-          <button type="button" className="kp-link kp-face__center" style={{ width: "100%" }} onClick={() => setFlipped(false)}>
+          <button type="button" className="cc-link cc-face__center" style={{ width: "100%" }} onClick={() => setFlipped(false)}>
             Ya tengo una cuenta
           </button>
         </div>
